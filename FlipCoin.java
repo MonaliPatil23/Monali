@@ -1,33 +1,36 @@
-
-
-import java.util.Scanner;
 import java.util.Random;
-class FlipCoin
+import java.util.Scanner;
+public class FlipCoin
 {
-public static void main(String args[])
-
+ public static void main (String[] args) 
 {
-
-int f,number;
-System.out.println("Enter the number of times coin to flip");
-Scanner n=new Scanner(System.in);
-int num=n.nextInt();
-System.out.println(num);
-Random r=new Random();
-for(int i=0;i<f;i++)
-{
- number=r.nextInt(f);
+  int toss;
+  int counter;
+  int heads, tails;
+  counter = 0;
+  heads = 0;
+  tails = 0;
+  Scanner input=new Scanner(System.in);
+  System.out.println("Enter amount of times you want the coin to be tossed :");
+  toss=input.nextInt();
+  Random coinToss = new Random();
+  int random = coinToss.nextInt(1);
+  while (counter < toss)
+ {
+   if (random > 0.5) 
+   {
+    heads = heads + 1;
+    System.out.println("Head");
+   }
+  else
+ {
+  tails = tails + 1;
+  System.out.println("Tail");
 }
-
-if(number<0.5)
-{
-System.out.println("head");
-
+counter++;
+random = coinToss.nextInt(2);
 }
-else
-System.out.println("tail");
-}
-
-
-
-}
+ System.out.println("");
+System.out.println("For your tosses you got \n" + "-------------------\n" + "Heads: " + heads + "\nTails: " + tails);
+} 
+} 
